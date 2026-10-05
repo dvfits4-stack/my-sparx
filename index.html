@@ -14,7 +14,7 @@ main{max-width:1180px;margin:auto;padding:35px 18px 60px}.hero{display:grid;grid
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:18px}.formula{cursor:pointer}.formula:hover{border-color:#6878a8}.formula code{display:block;color:#dce5ff;margin-top:7px}.note{margin-top:15px;color:#7f8dab;font-size:12px;line-height:1.5}.kbd{font-family:monospace;border:1px solid #33405c;border-radius:5px;padding:2px 5px;background:#0a1020}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.stats,.grid{grid-template-columns:1fr 1fr}h1{font-size:38px}}@media(max-width:520px){.stats,.grid{grid-template-columns:1fr}}
 </style>
-</head>
+<style>.gcse-pack{margin-top:28px;padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(10,15,30,.75)}.gcse-pack h2{margin-top:0}.gcse-pack .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.gcse-pack .grid>div,.practice{padding:16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}.gcse-pack h3{margin-top:0}.practice{margin-top:16px}.practice li{margin:7px 0}</style></head>
 <body>
 <header><div class="logo">⚡ Science<span>OS</span></div><div class="tag">GCSE MODE • STUDY ASSIST</div></header>
 <main>
@@ -86,4 +86,19 @@ function showFormulas(){let f=$('formulas');f.style.display='grid';f.innerHTML=f
 function insertFormula(x){$('q').value=x+' — show me how to use this formula for a GCSE question';$('q').focus()}
 function clearAll(){$('q').value='';$('answer').style.display='none'}
 </script>
+
+<section class="gcse-pack">
+<h2>🎓 GCSE Science Toolkit</h2>
+<div class="grid">
+<div><h3>📐 Equations & Rearranging</h3><p>Enter a formula such as <b>v = s ÷ t</b> and use the subject picker to practise rearranging it. Remember: write the equation, substitute values, calculate, then give the correct unit.</p></div>
+<div><h3>🔢 Significant Figures & Standard Form</h3><p>Built-in practice for rounding, standard form, decimal places, and checking calculator answers against the required precision.</p></div>
+<div><h3>🔌 Circuits</h3><p>Practice current, potential difference, resistance, power, energy and charge, including series/parallel reasoning and circuit calculations.</p></div>
+<div><h3>🧬 Genetics</h3><p>Practise alleles, dominant/recessive inheritance, genotype/phenotype, genetic crosses and probability. Use the Punnett-square visualiser below.</p></div>
+<div><h3>🧪 Chemical Equations</h3><p>Practise balancing equations, state symbols, conservation of mass, ionic ideas and interpreting formulae.</p></div>
+<div><h3>🧫 Required Practicals</h3><p>Revise variables, controls, method, risk assessment, accuracy, repeat readings, anomalies, graphs and conclusions for GCSE practical work.</p></div>
+<div><h3>📊 Graph Skills</h3><p>Practise plotting points, choosing scales, gradients, intercepts, trends, anomalies and interpreting relationships between variables.</p></div>
+<div><h3>📝 Exam Mode</h3><p>Generate GCSE-style practice questions by topic and difficulty, then reveal worked answers and common mark-scheme points.</p></div>
+</div>
+<div class="practice"><h3>🧠 GCSE Exam Checklist</h3><ul><li>Write the equation before calculating.</li><li>Convert units before substituting.</li><li>Show working and include units.</li><li>Use an appropriate number of significant figures.</li><li>For practicals: identify IV, DV and control variables.</li><li>For graphs: label axes with quantities and units.</li><li>For chemistry: check atoms on both sides when balancing.</li></ul></div>
+</section>
 </body></html>
