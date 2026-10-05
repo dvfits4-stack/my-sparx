@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⚡ ScienceOS — Sparx Helper</title>
+<style>
+:root{--bg:#070a13;--panel:#101628;--panel2:#151d32;--line:#273250;--text:#f4f7ff;--muted:#96a3c2;--accent:#7c6cff;--cyan:#43e7ff;--good:#53e08c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0%,#24205b 0,#0a0d19 38%,#05070d 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+header{height:72px;border-bottom:1px solid #ffffff12;background:#070a13cc;backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:5}
+.logo{font-weight:900;letter-spacing:.5px;font-size:20px}.logo span{color:var(--cyan)}
+.badge{font-size:12px;color:#bfc8e0;border:1px solid var(--line);padding:7px 10px;border-radius:999px}
+main{max-width:1120px;margin:auto;padding:42px 20px}
+.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:20px;align-items:stretch}
+.card{background:linear-gradient(180deg,#121a2d,#0e1424);border:1px solid var(--line);border-radius:22px;box-shadow:0 25px 70px #0007;padding:26px}
+h1{font-size:48px;line-height:1;margin:0 0 12px}.gradient{background:linear-gradient(90deg,#fff,#9feeff,#a99dff);-webkit-background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:16px;line-height:1.6;max-width:700px}
+.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+button,.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:linear-gradient(135deg,var(--accent),#a45cff);color:#fff;box-shadow:0 8px 25px #6f5cff44}.ghost{background:#ffffff08;border:1px solid var(--line);color:#fff}
+.stat{display:flex;flex-direction:column;justify-content:center;gap:10px}.stat strong{font-size:42px}.stat small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}.mini{padding:19px;border-radius:17px;background:#ffffff05;border:1px solid var(--line)}.mini b{display:block;margin-bottom:7px}.mini span{color:var(--muted);font-size:13px}
+.workspace{margin-top:20px}.label{font-weight:800;margin-bottom:8px}textarea{width:100%;min-height:180px;background:#080c17;border:1px solid var(--line);border-radius:15px;color:#fff;padding:15px;font-size:15px;resize:vertical;outline:none}textarea:focus{border-color:#6f7cff;box-shadow:0 0 0 3px #6f7cff22}
+.answer{display:none;margin-top:14px;padding:18px;border-radius:15px;background:#0a111f;border:1px solid #334164;white-space:pre-wrap;line-height:1.6}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.pill{padding:7px 10px;border-radius:999px;background:#ffffff08;border:1px solid var(--line);color:#b9c4df;font-size:12px}
+.note{margin-top:16px;color:#7f8dab;font-size:12px;line-height:1.5}
+@media(max-width:800px){.hero{grid-template-columns:1fr}h1{font-size:38px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">⚡ Science<span>OS</span></div>
+  <div class="badge">LOCAL • NO PASSWORD STORAGE</div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="card">
+    <h1><span class="gradient">Science, but ridiculously easier.</span></h1>
+    <div class="sub">A futuristic helper for working through Sparx Science questions. Open Sparx yourself, then paste a question here for calculations, formulas and explanations.</div>
+    <div class="buttons">
+      <a class="btn primary" href="https://www.sparxscience.com/" target="_blank" rel="noopener">🚀 Open Sparx Science</a>
+      <button class="ghost" onclick="document.getElementById('q').focus()">⌘ Focus helper</button>
+    </div>
+    <div class="pills"><span class="pill">⚡ Speed</span><span class="pill">🔌 Electricity</span><span class="pill">🧊 Density</span><span class="pill">🧪 Equations</span></div>
+  </div>
+  <div class="card stat">
+    <small>MODE</small><strong>Study<br>Assist</strong>
+    <small>Nothing you type is sent to this page's creator or stored by this file.</small>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="mini"><b>⚡ Speed</b><span>distance ÷ time, with unit conversion</span></div>
+  <div class="mini"><b>🔋 Electricity</b><span>V = I × R and rearrangements</span></div>
+  <div class="mini"><b>🧱 Density</b><span>mass ÷ volume with common units</span></div>
+</section>
+
+<section class="card workspace">
+  <div class="label">Paste your question</div>
+  <textarea id="q" placeholder="Example: A cyclist travels 150 m in 12 seconds. What is the speed?"></textarea>
+  <div class="buttons"><button class="primary" onclick="solve()">✨ Work it out</button><button class="ghost" onclick="clearAll()">Clear</button></div>
+  <div id="answer" class="answer"></div>
+  <div class="note">🔒 For safety, this page does not ask for, store, or automate your Sparx username/password, and it does not auto-submit answers. Use the official Sparx site for your account.</div>
+</section>
+</main>
+
+<script>
+const clean=n=>Number(n);
+function solve(){
+ const q=document.getElementById('q').value.trim(), out=document.getElementById('answer');
+ if(!q){out.style.display='block';out.textContent='Paste a question first 🙂';return}
+ const s=q.toLowerCase(); let r='';
+ let m=s.match(/(?:distance|travels?|travelled)\D{0,50}([0-9.]+)\s*(m|km)\D{0,50}(?:time|takes?|in)\D{0,35}([0-9.]+)\s*(s|sec|seconds|min|minutes|h|hours)/i);
+ if(m){
+  let d=clean(m[1]),t=clean(m[3]); if(m[2].toLowerCase()==='km')d*=1000;
+  if(/^min/i.test(m[4]))t*=60;if(/^h/i.test(m[4]))t*=3600;
+  r=`⚡ Speed\\n\\nSpeed = distance ÷ time\\n= ${d} ÷ ${t}\\n= ${(d/t).toFixed(2)} m/s`;
+ }
+ if(!r && s.includes('density')){
+  let a=s.match(/mass\\D{0,30}([0-9.]+)\\s*(g|kg)/),b=s.match(/volume\\D{0,30}([0-9.]+)\\s*(cm3|cm³|m3|m³)/);
+  if(a&&b){let mass=clean(a[1]),vol=clean(b[1]);if(a[2]==='kg'&&/^cm/.test(b[2]))mass*=1000;
+   r=`🧊 Density\\n\\nDensity = mass ÷ volume\\n= ${mass} ÷ ${vol}\\n= ${(mass/vol).toFixed(3).replace(/0+$/,'').replace(/\\.$/,'')} ${/^cm/.test(b[2])?'g/cm³':'kg/m³'}`;
+  }
+ }
+ if(!r && /(voltage|current|resistance|ohm)/.test(s)){
+  let v=s.match(/(?:voltage|potential difference)\\D{0,25}([0-9.]+)\\s*v\\b/),i=s.match(/current\\D{0,25}([0-9.]+)\\s*a\\b/),rr=s.match(/resistance\\D{0,25}([0-9.]+)\\s*(?:ohm|ω)\\b/);
+  if(v&&i&&!rr)r=`🔌 Resistance\\n\\nR = V ÷ I\\n= ${v[1]} ÷ ${i[1]}\\n= ${(clean(v[1])/clean(i[1])).toFixed(2)} Ω`;
+  else if(v&&rr&&!i)r=`🔌 Current\\n\\nI = V ÷ R\\n= ${v[1]} ÷ ${rr[1]}\\n= ${(clean(v[1])/clean(rr[1])).toFixed(2)} A`;
+  else if(i&&rr&&!v)r=`🔌 Voltage\\n\\nV = I × R\\n= ${i[1]} × ${rr[1]}\\n= ${(clean(i[1])*clean(rr[1])).toFixed(2)} V`;
+ }
+ if(!r)r=`🧠 I need a little more information to calculate that one.\\n\\nPaste the exact question, including its numbers and units.`;
+ out.style.display='block';out.textContent=r;
+}
+function clearAll(){document.getElementById('q').value='';document.getElementById('answer').style.display='none'}
+</script>
+</body>
+</html>
