@@ -1,98 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>⚡ ScienceOS — Sparx Helper</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⚡ ScienceOS — GCSE Science Helper</title>
 <style>
-:root{--bg:#070a13;--panel:#101628;--panel2:#151d32;--line:#273250;--text:#f4f7ff;--muted:#96a3c2;--accent:#7c6cff;--cyan:#43e7ff;--good:#53e08c}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0%,#24205b 0,#0a0d19 38%,#05070d 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
-header{height:72px;border-bottom:1px solid #ffffff12;background:#070a13cc;backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:5}
-.logo{font-weight:900;letter-spacing:.5px;font-size:20px}.logo span{color:var(--cyan)}
-.badge{font-size:12px;color:#bfc8e0;border:1px solid var(--line);padding:7px 10px;border-radius:999px}
-main{max-width:1120px;margin:auto;padding:42px 20px}
-.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:20px;align-items:stretch}
-.card{background:linear-gradient(180deg,#121a2d,#0e1424);border:1px solid var(--line);border-radius:22px;box-shadow:0 25px 70px #0007;padding:26px}
-h1{font-size:48px;line-height:1;margin:0 0 12px}.gradient{background:linear-gradient(90deg,#fff,#9feeff,#a99dff);-webkit-background-clip:text;color:transparent}
-.sub{color:var(--muted);font-size:16px;line-height:1.6;max-width:700px}
-.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-button,.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
-.primary{background:linear-gradient(135deg,var(--accent),#a45cff);color:#fff;box-shadow:0 8px 25px #6f5cff44}.ghost{background:#ffffff08;border:1px solid var(--line);color:#fff}
-.stat{display:flex;flex-direction:column;justify-content:center;gap:10px}.stat strong{font-size:42px}.stat small{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}.mini{padding:19px;border-radius:17px;background:#ffffff05;border:1px solid var(--line)}.mini b{display:block;margin-bottom:7px}.mini span{color:var(--muted);font-size:13px}
-.workspace{margin-top:20px}.label{font-weight:800;margin-bottom:8px}textarea{width:100%;min-height:180px;background:#080c17;border:1px solid var(--line);border-radius:15px;color:#fff;padding:15px;font-size:15px;resize:vertical;outline:none}textarea:focus{border-color:#6f7cff;box-shadow:0 0 0 3px #6f7cff22}
-.answer{display:none;margin-top:14px;padding:18px;border-radius:15px;background:#0a111f;border:1px solid #334164;white-space:pre-wrap;line-height:1.6}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.pill{padding:7px 10px;border-radius:999px;background:#ffffff08;border:1px solid var(--line);color:#b9c4df;font-size:12px}
-.note{margin-top:16px;color:#7f8dab;font-size:12px;line-height:1.5}
-@media(max-width:800px){.hero{grid-template-columns:1fr}h1{font-size:38px}.grid{grid-template-columns:1fr}}
+:root{--bg:#050811;--panel:#0d1424;--panel2:#121c30;--line:#263653;--text:#f5f8ff;--muted:#9aa9c7;--a:#7c6cff;--b:#39e7ff;--good:#58df98;--warn:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,#25215e 0,#090d19 38%,#04060b 100%);color:var(--text);font:15px Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+header{position:sticky;top:0;z-index:10;height:70px;padding:0 26px;display:flex;align-items:center;justify-content:space-between;background:#060913dd;border-bottom:1px solid #ffffff12;backdrop-filter:blur(16px)}
+.logo{font-size:21px;font-weight:950}.logo span{color:var(--b)}.tag{font-size:11px;border:1px solid var(--line);padding:7px 10px;border-radius:999px;color:#c5cee2}
+main{max-width:1180px;margin:auto;padding:35px 18px 60px}.hero{display:grid;grid-template-columns:1.4fr .6fr;gap:18px}.card{background:linear-gradient(180deg,#111a2c,#0b1220);border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 25px 70px #0008}h1{font-size:47px;line-height:1.02;margin:0 0 12px}.grad{background:linear-gradient(90deg,#fff,#9feeff,#a99dff);-webkit-background-clip:text;color:transparent}.sub{color:var(--muted);line-height:1.65;max-width:760px}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}button,.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:850;cursor:pointer;text-decoration:none}.primary{background:linear-gradient(135deg,var(--a),#a65cff);color:#fff;box-shadow:0 9px 28px #6f5cff40}.ghost{background:#ffffff08;border:1px solid var(--line);color:#fff}.stat strong{font-size:39px;display:block;margin:8px 0}.muted{color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chip{font-size:12px;padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:#ffffff07;color:#c8d2e7}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.mini{background:#ffffff06;border:1px solid var(--line);border-radius:16px;padding:17px}.mini b{display:block;margin-bottom:6px}.mini span{font-size:12px;color:var(--muted)}
+.workspace{margin-top:18px}.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.label{font-weight:900;margin-bottom:8px}.mode{border:1px solid var(--line);background:#080d18;color:#fff;border-radius:10px;padding:9px}.question{width:100%;min-height:180px;resize:vertical;background:#070b15;border:1px solid var(--line);border-radius:15px;color:#fff;padding:15px;font-size:15px;outline:none}.question:focus{border-color:#7481ff;box-shadow:0 0 0 3px #7481ff20}.answer{display:none;margin-top:15px;background:#080f1d;border:1px solid #33476d;border-radius:16px;padding:20px;line-height:1.65;white-space:pre-wrap}.answer .title{font-weight:950;font-size:18px}.result{margin-top:12px;padding:13px;border-left:3px solid var(--good);background:#ffffff05;border-radius:8px}.error{border-left-color:var(--warn)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:18px}.formula{cursor:pointer}.formula:hover{border-color:#6878a8}.formula code{display:block;color:#dce5ff;margin-top:7px}.note{margin-top:15px;color:#7f8dab;font-size:12px;line-height:1.5}.kbd{font-family:monospace;border:1px solid #33405c;border-radius:5px;padding:2px 5px;background:#0a1020}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.stats,.grid{grid-template-columns:1fr 1fr}h1{font-size:38px}}@media(max-width:520px){.stats,.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">⚡ Science<span>OS</span></div>
-  <div class="badge">LOCAL • NO PASSWORD STORAGE</div>
-</header>
-
+<header><div class="logo">⚡ Science<span>OS</span></div><div class="tag">GCSE MODE • STUDY ASSIST</div></header>
 <main>
 <section class="hero">
-  <div class="card">
-    <h1><span class="gradient">Science, but ridiculously easier.</span></h1>
-    <div class="sub">A futuristic helper for working through Sparx Science questions. Open Sparx yourself, then paste a question here for calculations, formulas and explanations.</div>
-    <div class="buttons">
-      <a class="btn primary" href="https://www.sparxscience.com/" target="_blank" rel="noopener">🚀 Open Sparx Science</a>
-      <button class="ghost" onclick="document.getElementById('q').focus()">⌘ Focus helper</button>
-    </div>
-    <div class="pills"><span class="pill">⚡ Speed</span><span class="pill">🔌 Electricity</span><span class="pill">🧊 Density</span><span class="pill">🧪 Equations</span></div>
-  </div>
-  <div class="card stat">
-    <small>MODE</small><strong>Study<br>Assist</strong>
-    <small>Nothing you type is sent to this page's creator or stored by this file.</small>
-  </div>
+<div class="card"><h1><span class="grad">GCSE science, properly explained.</span></h1><div class="sub">Paste a Sparx-style question and ScienceOS looks for the topic, chooses the relevant GCSE formula, converts units, shows the substitution, calculates the answer and gives a quick exam tip. It works locally in your browser.</div><div class="buttons"><a class="btn primary" href="https://www.sparxscience.com/" target="_blank" rel="noopener">🚀 Open Sparx Science</a><button class="ghost" onclick="document.getElementById('q').focus()">⌘ Focus</button><button class="ghost" onclick="showFormulas()">📚 Formula bank</button></div><div class="chips"><span class="chip">⚡ Physics</span><span class="chip">🧪 Chemistry</span><span class="chip">🧬 Biology</span><span class="chip">📐 Unit conversion</span><span class="chip">📝 Exam tips</span></div></div>
+<div class="card stat"><span class="muted">ENGINE</span><strong>GCSE<br>Solver</strong><span class="muted">Recognises dozens of common GCSE calculation patterns and explains each step.</span></div>
 </section>
-
-<section class="grid">
-  <div class="mini"><b>⚡ Speed</b><span>distance ÷ time, with unit conversion</span></div>
-  <div class="mini"><b>🔋 Electricity</b><span>V = I × R and rearrangements</span></div>
-  <div class="mini"><b>🧱 Density</b><span>mass ÷ volume with common units</span></div>
-</section>
-
+<section class="stats"><div class="mini"><b>⚡ Physics</b><span>motion, forces, energy, electricity, waves, pressure</span></div><div class="mini"><b>🧪 Chemistry</b><span>moles, concentration, equations, particles and energy</span></div><div class="mini"><b>🧬 Biology</b><span>magnification and common calculation questions</span></div><div class="mini"><b>🎯 Exam mode</b><span>formula → substitution → answer → check</span></div></section>
 <section class="card workspace">
-  <div class="label">Paste your question</div>
-  <textarea id="q" placeholder="Example: A cyclist travels 150 m in 12 seconds. What is the speed?"></textarea>
-  <div class="buttons"><button class="primary" onclick="solve()">✨ Work it out</button><button class="ghost" onclick="clearAll()">Clear</button></div>
-  <div id="answer" class="answer"></div>
-  <div class="note">🔒 For safety, this page does not ask for, store, or automate your Sparx username/password, and it does not auto-submit answers. Use the official Sparx site for your account.</div>
+<div class="row"><div class="label">Paste the exact question</div><select id="mode" class="mode"><option value="full">GCSE full explanation</option><option value="answer">Answer + working</option><option value="formula">Formula only</option></select></div>
+<textarea id="q" class="question" placeholder="Example: A car accelerates from 4 m/s to 20 m/s in 8 s. Calculate its acceleration.\n\nOr: A 2 kg object is lifted 3 m. Calculate its gravitational potential energy.\n\nTip: paste the whole question, including units."></textarea>
+<div class="buttons"><button class="primary" onclick="solve()">✨ Solve GCSE question</button><button class="ghost" onclick="clearAll()">Clear</button></div><div id="answer" class="answer"></div>
+<div class="note">🔒 This is a study helper: it does not ask for, store or automate your Sparx login and it does not submit answers for you. For assessed work, use the explanation to understand the method and check your own answer.</div>
 </section>
+<section id="formulas" class="grid" style="display:none"></section>
 </main>
-
 <script>
-const clean=n=>Number(n);
-function solve(){
- const q=document.getElementById('q').value.trim(), out=document.getElementById('answer');
- if(!q){out.style.display='block';out.textContent='Paste a question first 🙂';return}
- const s=q.toLowerCase(); let r='';
- let m=s.match(/(?:distance|travels?|travelled)\D{0,50}([0-9.]+)\s*(m|km)\D{0,50}(?:time|takes?|in)\D{0,35}([0-9.]+)\s*(s|sec|seconds|min|minutes|h|hours)/i);
- if(m){
-  let d=clean(m[1]),t=clean(m[3]); if(m[2].toLowerCase()==='km')d*=1000;
-  if(/^min/i.test(m[4]))t*=60;if(/^h/i.test(m[4]))t*=3600;
-  r=`⚡ Speed\\n\\nSpeed = distance ÷ time\\n= ${d} ÷ ${t}\\n= ${(d/t).toFixed(2)} m/s`;
- }
- if(!r && s.includes('density')){
-  let a=s.match(/mass\\D{0,30}([0-9.]+)\\s*(g|kg)/),b=s.match(/volume\\D{0,30}([0-9.]+)\\s*(cm3|cm³|m3|m³)/);
-  if(a&&b){let mass=clean(a[1]),vol=clean(b[1]);if(a[2]==='kg'&&/^cm/.test(b[2]))mass*=1000;
-   r=`🧊 Density\\n\\nDensity = mass ÷ volume\\n= ${mass} ÷ ${vol}\\n= ${(mass/vol).toFixed(3).replace(/0+$/,'').replace(/\\.$/,'')} ${/^cm/.test(b[2])?'g/cm³':'kg/m³'}`;
-  }
- }
- if(!r && /(voltage|current|resistance|ohm)/.test(s)){
-  let v=s.match(/(?:voltage|potential difference)\\D{0,25}([0-9.]+)\\s*v\\b/),i=s.match(/current\\D{0,25}([0-9.]+)\\s*a\\b/),rr=s.match(/resistance\\D{0,25}([0-9.]+)\\s*(?:ohm|ω)\\b/);
-  if(v&&i&&!rr)r=`🔌 Resistance\\n\\nR = V ÷ I\\n= ${v[1]} ÷ ${i[1]}\\n= ${(clean(v[1])/clean(i[1])).toFixed(2)} Ω`;
-  else if(v&&rr&&!i)r=`🔌 Current\\n\\nI = V ÷ R\\n= ${v[1]} ÷ ${rr[1]}\\n= ${(clean(v[1])/clean(rr[1])).toFixed(2)} A`;
-  else if(i&&rr&&!v)r=`🔌 Voltage\\n\\nV = I × R\\n= ${i[1]} × ${rr[1]}\\n= ${(clean(i[1])*clean(rr[1])).toFixed(2)} V`;
- }
- if(!r)r=`🧠 I need a little more information to calculate that one.\\n\\nPaste the exact question, including its numbers and units.`;
- out.style.display='block';out.textContent=r;
+const $=id=>document.getElementById(id); const n=x=>Number(String(x).replace(/,/g,''));
+function fmt(x){if(!Number.isFinite(x))return '—';let a=Math.abs(x);let d=a>=100?2:a>=10?3:4;return Number(x.toFixed(d)).toString()}
+function unitTime(u){u=u.toLowerCase();if(/^ms|millisecond/.test(u))return .001;if(/^min/.test(u))return 60;if(/^h|hour/.test(u))return 3600;return 1}
+function val(text, labels, units='[a-zµ³²]+'){let l=labels.join('|');let r=new RegExp('(?:'+l+')\\s*(?:=|is|of|was|were|to|at|with|has|have)?\\s*([0-9]+(?:\\.[0-9]+)?)\\s*('+units+')','i');let m=text.match(r);return m?{x:n(m[1]),u:m[2]}:null}
+function make(title,formula,steps,answer,tip){return `🧠 ${title}\n\nFormula: ${formula}\n\n${steps}\n\n✅ Answer: ${answer}\n\n🎯 Exam tip: ${tip}`}
+function solve(){let q=$('q').value.trim(),out=$('answer'); if(!q){out.style.display='block';out.textContent='Paste the exact question first 🙂';return}let s=q.toLowerCase();let r=calc(s);out.style.display='block';out.textContent=r||`🧠 I couldn't confidently identify the calculation.\n\nTry pasting the complete question with the numbers and units.\n\nRecognised GCSE topics include:\n• speed, acceleration, force, weight\n• kinetic/gravitational energy, power, efficiency\n• density, pressure, moments\n• current, voltage, resistance, electrical power/energy/charge\n• waves, frequency and wave speed\n• magnification, moles and concentration\n\nIf it is a non-calculation question, use the question as a study prompt and I can help explain the science.`}
+function calc(s){
+// speed
+let d=val(s,['distance','travels','travelled','moves','moved']),t=val(s,['time','takes','took','in'], 'ms|milliseconds|s|sec|seconds|min|minutes|h|hours');
+if(d&&t&&(/speed|velocity|how fast/.test(s)||/distance.{0,35}time/.test(s))){let D=d.x*(/^km$/i.test(d.u)?1000:1),T=t.x*unitTime(t.u),a=D/T;return make('Speed','speed = distance ÷ time',`Convert first if needed.\ndistance = ${fmt(D)} m\ntime = ${fmt(T)} s\n\nspeed = ${fmt(D)} ÷ ${fmt(T)}\n= ${fmt(a)} m/s`,`${fmt(a)} m/s`,'Keep distance and time in compatible units before dividing.')}
+// acceleration
+let vi=val(s,['initial speed','starting speed','starts at','initial velocity']),vf=val(s,['final speed','ending speed','finishes at','final velocity']);
+if(!vi) {let ms=s.match(/(?:from|starts at)\s+([0-9.]+)\s*m\/s/i);if(ms)vi={x:n(ms[1]),u:'m/s'}}
+if(!vf){let ms=s.match(/(?:to|reaches|ends at)\s+([0-9.]+)\s*m\/s/i);if(ms)vf={x:n(ms[1]),u:'m/s'}}
+let ta=val(s,['time','in'],'s|sec|seconds|min|minutes');
+if(vi&&vf&&ta&&/accelerat/.test(s)){let T=ta.x*unitTime(ta.u),a=(vf.x-vi.x)/T;return make('Acceleration','acceleration = change in velocity ÷ time',`change in velocity = ${fmt(vf.x)} − ${fmt(vi.x)} = ${fmt(vf.x-vi.x)} m/s\ntime = ${fmt(T)} s\n\na = ${fmt(vf.x-vi.x)} ÷ ${fmt(T)}\n= ${fmt(a)} m/s²`,`${fmt(a)} m/s²`,'Acceleration is change in velocity, so subtract initial from final.')}
+// force
+let mass=val(s,['mass'],'g|kg'),acc=val(s,['acceleration'],'m/s²|m/s2'); if(mass&&acc&&/force|newton/.test(s)){let M=mass.x*(/^g$/i.test(mass.u)?0.001:1),F=M*acc.x;return make('Force','force = mass × acceleration',`mass = ${fmt(M)} kg\nacceleration = ${fmt(acc.x)} m/s²\n\nF = ${fmt(M)} × ${fmt(acc.x)}\n= ${fmt(F)} N`,`${fmt(F)} N`,'Mass must be in kg and acceleration in m/s².')}
+// weight
+let mw=val(s,['mass'],'g|kg'),g=val(s,['gravitational field strength','g'],'N/kg|n/kg'); if(mw&&(/weight/.test(s)||g)){let M=mw.x*(/^g$/i.test(mw.u)?0.001:1),G=g?g.x:9.8,W=M*G;return make('Weight','weight = mass × gravitational field strength',`mass = ${fmt(M)} kg\ng = ${fmt(G)} N/kg\n\nW = ${fmt(M)} × ${fmt(G)}\n= ${fmt(W)} N`,`${fmt(W)} N`,'Use the value of g given in the question; if none is given, 9.8 or 10 N/kg may be expected depending on the course.')}
+// density
+let ma=val(s,['mass'],'g|kg'),vo=val(s,['volume'],'cm³|cm3|m³|m3'); if(ma&&vo&&/density/.test(s)){let M=ma.x,V=vo.x;if(/^kg$/i.test(ma.u)&&/^cm/i.test(vo.u))M*=1000;let den=M/V;return make('Density','density = mass ÷ volume',`mass = ${fmt(M)} ${/^cm/i.test(vo.u)?'g':'kg'}\nvolume = ${fmt(V)} ${vo.u}\n\ndensity = ${fmt(M)} ÷ ${fmt(V)}\n= ${fmt(den)} ${/^cm/i.test(vo.u)?'g/cm³':'kg/m³'}`,`${fmt(den)} ${/^cm/i.test(vo.u)?'g/cm³':'kg/m³'}`,'Check that mass and volume units match the density unit you need.')}
+// pressure
+let force=val(s,['force'],'N'),area=val(s,['area'],'m²|m2|cm²|cm2');if(force&&area&&/pressure/.test(s)){let A=area.x;if(/^cm/i.test(area.u))A/=10000;let P=force.x/A;return make('Pressure','pressure = force ÷ area',`force = ${fmt(force.x)} N\narea = ${fmt(A)} m²\n\nP = ${fmt(force.x)} ÷ ${fmt(A)}\n= ${fmt(P)} Pa`,`${fmt(P)} Pa`,'Area must be in m² for pressure in pascals.')}
+// moments
+let fm=val(s,['force'],'N'),dm=val(s,['distance','perpendicular distance'],'m|cm');if(fm&&dm&&/moment/.test(s)){let D=dm.x*(/^cm$/i.test(dm.u)?0.01:1),Mo=fm.x*D;return make('Moment','moment = force × perpendicular distance',`force = ${fmt(fm.x)} N\ndistance = ${fmt(D)} m\n\nM = ${fmt(fm.x)} × ${fmt(D)}\n= ${fmt(Mo)} Nm`,`${fmt(Mo)} Nm`,'Use the perpendicular distance from the pivot.')}
+// kinetic
+let mk=val(s,['mass'],'g|kg'),vk=val(s,['speed','velocity'],'m/s');if(mk&&vk&&/kinetic/.test(s)){let M=mk.x*(/^g$/i.test(mk.u)?0.001:1),E=.5*M*vk.x**2;return make('Kinetic energy','KE = ½ × mass × speed²',`mass = ${fmt(M)} kg\nspeed = ${fmt(vk.x)} m/s\n\nKE = 0.5 × ${fmt(M)} × ${fmt(vk.x)}²\n= ${fmt(E)} J`,`${fmt(E)} J`,'Square the speed before multiplying.')}
+// GPE
+let mg=val(s,['mass'],'g|kg'),hg=val(s,['height'],'m|cm');if(mg&&hg&&/gravitational|gpe|potential energy/.test(s)){let M=mg.x*(/^g$/i.test(mg.u)?0.001:1),H=hg.x*(/^cm$/i.test(hg.u)?0.01:1),G=g?g.x:9.8,E=M*G*H;return make('Gravitational potential energy','GPE = mass × g × height',`mass = ${fmt(M)} kg\ng = ${fmt(G)} N/kg\nheight = ${fmt(H)} m\n\nGPE = ${fmt(M)} × ${fmt(G)} × ${fmt(H)}\n= ${fmt(E)} J`,`${fmt(E)} J`,'Height must be measured in metres.')}
+// power mechanical
+let en=val(s,['energy','work done'],'J|kJ'),pt=val(s,['time'],'s|sec|seconds');if(en&&pt&&/power/.test(s)){let E=en.x*(/^kj$/i.test(en.u)?1000:1),T=pt.x*unitTime(pt.u),P=E/T;return make('Power','power = energy transferred ÷ time',`energy = ${fmt(E)} J\ntime = ${fmt(T)} s\n\nP = ${fmt(E)} ÷ ${fmt(T)}\n= ${fmt(P)} W`,`${fmt(P)} W`,'Power measures how quickly energy is transferred.')}
+// efficiency
+let useful=val(s,['useful energy','useful output','useful work'],'J|kJ'),total=val(s,['total energy','total input','input energy'],'J|kJ');if(useful&&total&&/efficien/.test(s)){let U=useful.x*(/^kj$/i.test(useful.u)?1000:1),T=total.x*(/^kj$/i.test(total.u)?1000:1),e=U/T*100;return make('Efficiency','efficiency = useful output ÷ total input × 100',`useful output = ${fmt(U)} J\ntotal input = ${fmt(T)} J\n\nefficiency = ${fmt(U)} ÷ ${fmt(T)} × 100\n= ${fmt(e)} %`,`${fmt(e)} %`,'Efficiency is normally given as a percentage and cannot exceed 100%.')}
+// Ohm
+let vv=val(s,['voltage','potential difference'],'V|volts'),ii=val(s,['current'],'A|amps|amp'),rr=val(s,['resistance'],'Ω|ohm|ohms');if(/voltage|current|resistance|ohm/.test(s)&&(vv||ii||rr)){if(vv&&ii&&!rr){let R=vv.x/ii.x;return make('Resistance','V = I × R → R = V ÷ I',`V = ${fmt(vv.x)} V\nI = ${fmt(ii.x)} A\n\nR = ${fmt(vv.x)} ÷ ${fmt(ii.x)}\n= ${fmt(R)} Ω`,`${fmt(R)} Ω`,'Current is measured in amps and resistance in ohms.')}if(vv&&rr&&!ii){let I=vv.x/rr.x;return make('Current','V = I × R → I = V ÷ R',`V = ${fmt(vv.x)} V\nR = ${fmt(rr.x)} Ω\n\nI = ${fmt(vv.x)} ÷ ${fmt(rr.x)}\n= ${fmt(I)} A`,`${fmt(I)} A`,'Rearrange the triangle rather than guessing.')}if(ii&&rr&&!vv){let V=ii.x*rr.x;return make('Potential difference','V = I × R',`I = ${fmt(ii.x)} A\nR = ${fmt(rr.x)} Ω\n\nV = ${fmt(ii.x)} × ${fmt(rr.x)}\n= ${fmt(V)} V`,`${fmt(V)} V`,'V is voltage, I is current and R is resistance.')}
 }
-function clearAll(){document.getElementById('q').value='';document.getElementById('answer').style.display='none'}
+// electrical power/energy/charge
+let ev=vv,ei=ii,et=val(s,['time'],'s|seconds|minutes|hours'),eq=val(s,['charge'],'C|coulombs');if(ev&&ei&&/electrical power|power of|power rating/.test(s)){let P=ev.x*ei.x;return make('Electrical power','P = V × I',`V = ${fmt(ev.x)} V\nI = ${fmt(ei.x)} A\n\nP = ${fmt(ev.x)} × ${fmt(ei.x)}\n= ${fmt(P)} W`,`${fmt(P)} W`,'Power is measured in watts.')}
+if(ev&&et&&/energy transferred|electrical energy|energy used/.test(s)){let T=et.x*unitTime(et.u),P=ei?ev.x*ei.x:null;if(P){let E=P*T;return make('Electrical energy','E = P × t',`P = ${fmt(P)} W\ntime = ${fmt(T)} s\n\nE = ${fmt(P)} × ${fmt(T)}\n= ${fmt(E)} J`,`${fmt(E)} J`,'Use seconds when power is in watts and energy is in joules.')}}
+if(ei&&et&&/charge/.test(s)){let T=et.x*unitTime(et.u),Q=ei.x*T;return make('Charge','Q = I × t',`I = ${fmt(ei.x)} A\ntime = ${fmt(T)} s\n\nQ = ${fmt(ei.x)} × ${fmt(T)}\n= ${fmt(Q)} C`,`${fmt(Q)} C`,'Time must be in seconds.')}
+// waves
+let freq=val(s,['frequency'],'Hz|hz'),wl=val(s,['wavelength'],'m|cm');if(freq&&wl&&/wave speed|speed of the wave|waves/.test(s)){let L=wl.x*(/^cm$/i.test(wl.u)?0.01:1),w=freq.x*L;return make('Wave speed','wave speed = frequency × wavelength',`frequency = ${fmt(freq.x)} Hz\nwavelength = ${fmt(L)} m\n\nv = ${fmt(freq.x)} × ${fmt(L)}\n= ${fmt(w)} m/s`,`${fmt(w)} m/s`,'Convert wavelength to metres if the required answer is in m/s.')}
+// magnification
+let image=val(s,['image size'],'mm|cm|m'),real=val(s,['actual size','real size'],'mm|cm|m');if(image&&real&&/magnification/.test(s)){let conv=x=>/^m$/i.test(x.u)?x.x*1000:/^cm$/i.test(x.u)?x.x*10:x.x;let I=conv(image),R=conv(real),M=I/R;return make('Magnification','magnification = image size ÷ actual size',`Convert both sizes to the same unit.\nimage size = ${fmt(I)} mm\nactual size = ${fmt(R)} mm\n\nM = ${fmt(I)} ÷ ${fmt(R)}\n= ${fmt(M)}×`,`${fmt(M)}×`,'The two lengths must use the same units.')}
+// moles/concentration
+let mmol=val(s,['mass'],'g'),mr=val(s,['relative formula mass','mr'],'');if(mmol&&mr&&/mole|moles|amount of substance/.test(s)){let mol=mmol.x/mr.x;return make('Moles','moles = mass ÷ Mr',`mass = ${fmt(mmol.x)} g\nMr = ${fmt(mr.x)}\n\nn = ${fmt(mmol.x)} ÷ ${fmt(mr.x)}\n= ${fmt(mol)} mol`,`${fmt(mol)} mol`,'Keep mass in grams for the usual GCSE equation.')}
+let mol=val(s,['moles','amount of substance'],'mol'),volc=val(s,['volume'],'dm³|dm3|cm³|cm3');if(mol&&volc&&/concentration/.test(s)){let V=volc.x;if(/^cm/i.test(volc.u))V/=1000;let c=mol.x/V;return make('Concentration','concentration = moles ÷ volume',`moles = ${fmt(mol.x)} mol\nvolume = ${fmt(V)} dm³\n\nc = ${fmt(mol.x)} ÷ ${fmt(V)}\n= ${fmt(c)} mol/dm³`,`${fmt(c)} mol/dm³`,'For mol/dm³, convert cm³ to dm³ by dividing by 1000.')}
+return null}
+const formulaData=[['Speed','v = d ÷ t'],['Acceleration','a = (v − u) ÷ t'],['Force','F = m × a'],['Weight','W = m × g'],['Density','ρ = m ÷ V'],['Pressure','p = F ÷ A'],['Moment','moment = F × d'],['Kinetic energy','KE = ½mv²'],['GPE','GPE = mgh'],['Power','P = E ÷ t'],['Efficiency','efficiency = useful ÷ total × 100'],['Ohm’s law','V = I × R'],['Electrical power','P = V × I'],['Charge','Q = I × t'],['Wave speed','v = fλ'],['Magnification','M = image ÷ actual'],['Moles','n = mass ÷ Mr'],['Concentration','c = n ÷ V']];
+function showFormulas(){let f=$('formulas');f.style.display='grid';f.innerHTML=formulaData.map(x=>`<div class="mini formula" onclick="insertFormula('${x[1].replaceAll("'","\\'")}')"><b>${x[0]}</b><code>${x[1]}</code></div>`).join('');f.scrollIntoView({behavior:'smooth'})}
+function insertFormula(x){$('q').value=x+' — show me how to use this formula for a GCSE question';$('q').focus()}
+function clearAll(){$('q').value='';$('answer').style.display='none'}
 </script>
-</body>
-</html>
+</body></html>
